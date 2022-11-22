@@ -6,21 +6,23 @@
     font-family: 'Roboto Mono', monospace;
 }
 nav{
-    display: flex;
-    background-color: #fae857;
-    align-items: center;
-    
+    background-color: #d8cd78;
+    text-align: center;
 }
-nav img{
+img{
     width: 15%;
     margin: 10px;  
 }
 nav p{
-    padding: 1%;
+    width: 60vw;
+    margin-left: 20%;
 }
+
+
+
 /* Media query for mobile devices*/
 
-@media only screen and (max-width:500px){
+ @media only screen and (max-width:500px){
    nav{
     justify-content: space-around;
     flex-wrap: wrap;
@@ -31,19 +33,4 @@ nav p{
         width: 30%;
         margin:20px;
     }
-    nav p{
-        padding: 5%;
-    }
-}
-@media only screen and (min-width:500px) {
-    nav{
-        justify-content: space-between;
-        flex-wrap: wrap;
-        text-align: center;
-        }
-    
-        nav img{
-            width: 15vw;
-        }
-        
 }

@@ -3,7 +3,35 @@
     padding: 0%;
 }
 body{
-    background: rgb(112, 179, 117);
-    background-image: url("feedback-illu.svg");
+    background: rgb(228, 228, 228);
+    /* background: rgb(112, 179, 117); */
+    display: flex;
+    text-align: center;
+}
+.but {
+    background: white;
+    border-radius: 5px;
+    height: 20vh;
+    width: 25vw;
+    text-align: center;
+  }
+  a{
+    padding-top: 5px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+    height: 4vh;
+    width: 20vw;
+    background: greenyellow;
+
+  }
+img{
     background-repeat: no-repeat;
+    display: flex;
+    /* margin-left: auto;
+    margin-right: auto;*/
+    height: 40vh; 
+    position: relative;
+    /* margin-top: 15%; */
 }
