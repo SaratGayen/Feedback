@@ -1,0 +1,9 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    background: rgb(112, 179, 117);
+    background-image: url("feedback-illu.svg");
+    background-repeat: no-repeat;
+}
