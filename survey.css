@@ -1,7 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400&display=swap');
+
 *{
     margin: 0%;
     padding: 0%;
+    font-family: 'Roboto Mono', monospace;
 }
 nav{
-    background-image: url("");
+    display: flex;
+    background-color: #fae857;
+    align-items: center;
+    
+}
+nav img{
+    width: 15%;
+    margin: 10px;  
+}
+nav p{
+    padding: 1%;
+}
+/* Media query for mobile devices*/
+
+@media only screen and (max-width:500px){
+   nav{
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    }
+
+    nav img{
+        width: 30%;
+        margin:20px;
+    }
+    nav p{
+        padding: 5%;
+    }
+}
+@media only screen and (min-width:500px) {
+    nav{
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: center;
+        }
+    
+        nav img{
+            width: 15vw;
+        }
+        
 }
