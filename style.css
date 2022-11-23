@@ -29,9 +29,9 @@ body{
 img{
     background-repeat: no-repeat;
     display: flex;
-    /* margin-left: auto;
-    margin-right: auto;*/
+    margin-left: auto;
+    margin-right: auto;
     height: 40vh; 
     position: relative;
-    /* margin-top: 15%; */
+    margin-top: 15%;
 }
