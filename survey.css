@@ -5,6 +5,9 @@
     padding: 0%;
     font-family: 'Roboto Mono', monospace;
 }
+/* section{
+    background: #9aa7cc;
+} */
 nav{
     background-color: #d8cd78;
     text-align: center;
@@ -16,6 +19,31 @@ img{
 nav p{
     width: 60vw;
     margin-left: 20%;
+}
+.info{
+    text-align: center;
+}
+input{
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-bottom: 1px solid rgb(124, 123, 123);
+    margin-bottom: 20px;
+    cursor: pointer;
+    background: none;
+}
+/* p{
+    text-align: center;
+    margin-bottom: 10px;
+} */
+.q{
+    background: whitesmoke;
+    width: 26%;
+    height: 35vh;
+    border-radius: 8px;
+    position: relative;
+    padding: 0 15px;
+    align-items: center;
 }
 
 
