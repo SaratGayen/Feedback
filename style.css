@@ -6,26 +6,27 @@ body{
   height: 100vh;
 }
 .bg{  
-    background: url('feedback-illu.svg');     
+    background: url('cropped.png');     
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    /* border: 2px solid red; */
+     /* border: 2px solid red;  */
     height: 50vh;
     width: 50vw;
+    margin: auto;
     position: relative;
     top: 14vh;
     left:12vw;
 }
 .but {
     position: relative;
-    left: 14%;
+    /* left: 14%; */
     background: white;
     border-radius: 5px;
     height: 37vh;
     width: 20vw;
     text-align: center;
-    /* border: 2px solid black; */
+    border: 2px solid black;
     }
   a{
     padding-top: 5px;
