@@ -23,9 +23,6 @@ nav p{
 .info{
     text-align: center;
 }
-#q1{
-    color: aqua;
-}
 input[type=text],input[type=date]{
     border: none;
     outline: none;
@@ -60,6 +57,10 @@ h2{
 }
 .questions{
     text-align: center;
+    font-size: 1.3rem;
+}
+form{
+    font-size:1.2rem;
 }
 .container{
     display: flex;
