@@ -46,10 +46,11 @@ input[type=submit]{
 .q{
     background: rgb(75, 154, 206);
     width: 26%;
-    height: 35vh;
+    height: fit-content;
     border-radius: 8px;
     position: relative;
-    padding: 0 15px;
+    padding: 5px 15px;
+    margin: 5px;
     
 }
 h2{
@@ -66,7 +67,7 @@ form{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    height: 250vh;
+    height: fit-content;
     padding-top: 5px;
 }
 .cont{
@@ -91,5 +92,21 @@ footer{
     nav img{
         width: 30%;
         margin:20px;
+    }
+    .questions{
+        font-size: medium;
+    }
+    form{
+        font-size: medium;
+    }
+    .q{
+        position: relative;
+        padding: 2px 15px;
+        width: 80vw;
+        height: fit-content;
+        margin: 7px;
+    }
+    .container{
+        height: fit-content;
     }
 }
