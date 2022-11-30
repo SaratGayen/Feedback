@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Roboto Mono', monospace;
+}
+/* section{
+    background: #9aa7cc;
+} */
+nav{
+    background-color: #d8cd78;
+    text-align: center;
+}
+img{
+    width: 15%;
+    margin: 10px;  
+}
+nav p{
+    width: 60vw;
+    margin-left: 20%;
+}
+.info{
+    text-align: center;
+}
+input[type=text],input[type=date]{
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-bottom: 1px solid rgb(124, 123, 123);
+    margin-bottom: 20px;
+    cursor: pointer;
+    background: none;
+}
+input[type=submit]{
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background: rgb(103, 103, 172);
+    width: 20vw;
+}
+ .info{
+    text-align: center;
+    margin-bottom: 10px;
+} 
+.q{
+    background: rgb(75, 154, 206);
+    width: 26%;
+    height: fit-content;
+    border-radius: 8px;
+    position: relative;
+    padding: 5px 15px;
+    margin: 5px;
+    
+}
+h2{
+    text-align: center;
+}
+.questions{
+    text-align: center;
+    font-size: 1.3rem;
+}
+form{
+    font-size:1.2rem;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: fit-content;
+    padding-top: 5px;
+}
+.cont{
+    text-align: center;
+}
+footer{
+    text-align: center;
+    background: rgb(21, 38, 63);
+    color: white;
+}
+
+
+/* Media query for mobile devices*/
+
+ @media only screen and (max-width:500px){
+   nav{
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    }
+
+    nav img{
+        width: 30%;
+        margin:20px;
+    }
+    .questions{
+        font-size: medium;
+    }
+    form{
+        font-size: medium;
+    }
+    .q{
+        position: relative;
+        padding: 2px 15px;
+        width: 80vw;
+        height: fit-content;
+        margin: 7px;
+    }
+    .container{
+        height: fit-content;
+    }
+}
