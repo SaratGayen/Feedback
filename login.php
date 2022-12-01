@@ -15,47 +15,35 @@
         
         // checking password
 
-          $db_pass = $email_pass['code'];
+         $db_pass = $email_pass['code'];
 
         //   name storing in seesion
           $_SESSION['username'] = $email_pass['username'];
 
 
-          $pass_decode = password_verify($password,$db_pass);
-
         //  log in after matching password
+        
+        //checking admin or student
+       if($db_pass==$password){
+           if($email_pass["usertype"]=="student"){
 
-           if($pass_decode){
-
-            if(isset($_POST['rememberme'])){
-                setcookie('emailcookie',$email,time()+86400);
-                setcookie('passwordcookie',$password,time()+86400);
-                header('location:survey.php');
+                header('location:survey.html');
             }
+            elseif($email_pass["usertype"]=="admin"){
+                header('location:admin.html');
+          }
 
-
-           echo "login successfull";
-      
-         // Redirecting to chat screen using script
-
-          ?>
-           <script>
-           location.replace("survey.php");
-          </script>
-          <?php
         }
-
-       
+    
        else{
            echo "Password Incorrect";
           }
 
-        }else{ 
+        } else{ 
           echo "Incorrect Email";
           }
+        }
     
-    }
-
 ?>
 
 
