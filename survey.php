@@ -6,6 +6,61 @@ if(!isset($_SESSION['username'])){
     echo "you are logged out";
     header('location:login.php'); 
 }
+
+?>
+
+<?php
+
+//for inserting the records
+include_once "php/connection.php";
+if(isset($_POST['submit'])){
+    $center = mysqli_real_escape_string($con, $_POST['center']);
+    $faculty = mysqli_real_escape_string($con, $_POST['faculty']);
+    $course = mysqli_real_escape_string($con, $_POST['course']);
+    $q1 = mysqli_real_escape_string($con, $_POST['q1']);
+    $q2 = mysqli_real_escape_string($con, $_POST['q2']);
+    $q3 = mysqli_real_escape_string($con, $_POST['q3']);
+    $q4 = mysqli_real_escape_string($con, $_POST['q4']);
+    $q5 = mysqli_real_escape_string($con, $_POST['q5']);
+    $q6 = mysqli_real_escape_string($con, $_POST['q6']);
+    $q7 = mysqli_real_escape_string($con, $_POST['q7']);
+    $q8 = mysqli_real_escape_string($con, $_POST['q8']);
+    $q9 = mysqli_real_escape_string($con, $_POST['q9']);
+    $q10 = mysqli_real_escape_string($con, $_POST['q10']);
+    $q11 = mysqli_real_escape_string($con, $_POST['q11']);
+    $q12 = mysqli_real_escape_string($con, $_POST['q12']);
+    $q13 = mysqli_real_escape_string($con, $_POST['q13']);
+    $q14 = mysqli_real_escape_string($con, $_POST['q14']);
+    $q15 = mysqli_real_escape_string($con, $_POST['q15']);
+    $q16 = mysqli_real_escape_string($con, $_POST['q16']);
+    $q17 = mysqli_real_escape_string($con, $_POST['q17']);
+    $q18 = mysqli_real_escape_string($con, $_POST['q18']);
+    $q19 = mysqli_real_escape_string($con, $_POST['q19']);
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $code = mysqli_real_escape_string($con, $_POST['code']);
+    $comment = mysqli_real_escape_string($con, $_POST['comment']);
+
+ //   inserting records
+    $insertquery = "insert into sfd (center,faculty,course,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,name,code,comment,sdate) values ('$center','$faculty','$course','$cq1','$cq2','$cq3','$cq4','$cq5','$cq6','$cq7','$cq8','$cq9','$cq10','$cq11','$cq12','$cq13','$cq14','$cq15','$cq16','$cq17','$cq18','$cq19','$name','$code','$comment',now())";
+
+        // connection alerts
+        $iquery = mysqli_query($con,$insertquery);
+        if($iquery){
+          ?>
+          <script>
+            alert("Connection Successful");
+          </script>
+          <?php
+        }else{
+          ?>
+          <script>
+            alert("Connection not Succeful");
+          </script>
+          <?php
+        }
+    
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -414,12 +469,10 @@ if(!isset($_SESSION['username'])){
         <div class="cont">
             <p class="i">Please use the following space to provide any other feedback about the course/centre etc. tht you would like to give</p>
 
-                <label for="center">Full Name:</label>
-                <input type="text"  placeholder=" Full Name" required>
-                <label for="faculty">Code:</label>
-                <input type="text"  placeholder="Student code" required>
-                <!-- <label for="course">Date:</label>
-                <input type="date" required> -->
+                <label for="name">Full Name:</label>
+                <input type="text"  placeholder=" Full Name" name="name" required>
+                <label for="code">Code:</label>
+                <input type="text"  placeholder="Student code" name="code" required>
                 <br>
                 <label for="comment">Advise:</label>
                 <textarea rows="4" cols="50" name="comment" required placeholder="Type your thoughts"></textarea>
