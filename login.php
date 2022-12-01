@@ -30,7 +30,7 @@
             if(isset($_POST['rememberme'])){
                 setcookie('emailcookie',$email,time()+86400);
                 setcookie('passwordcookie',$password,time()+86400);
-                header('location:survey.html');
+                header('location:survey.php');
             }
 
 
@@ -40,7 +40,7 @@
 
           ?>
            <script>
-           location.replace("survey.html");
+           location.replace("survey.php");
           </script>
           <?php
         }

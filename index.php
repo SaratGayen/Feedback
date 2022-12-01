@@ -2,7 +2,7 @@
           session_start();
           include_once "php/connection.php";
           if(isset($_POST['submit'])){
-          $username = mysqli_real_escape_string($con, $_POST['username']);
+          // $username = mysqli_real_escape_string($con, $_POST['username']);
           $email = mysqli_real_escape_string($con, $_POST['email']);
           $code = mysqli_real_escape_string($con, $_POST['code']);
           $mobile = mysqli_real_escape_string($con, $_POST['mobile']);
@@ -22,7 +22,7 @@
           else{
                               
         //   inserting records
-          $insertquery = "insert into users (username,email,code,mobile,ctime) values ('$username','$email','$c','$mobile',now())";
+          $insertquery = "insert into users (email,code,mobile,ctime) values ('$email','$c','$mobile',now())";
 
 
         // connection alerts
@@ -65,10 +65,10 @@
                 <span class="title">Registration</span>
    
                 <form action="#" method="POST" autocomplete="off" enctype="multipart/form-data">
-               <div class="input-field">
+               <!-- <div class="input-field">
                    <input type="text" placeholder="Type your full Name" name="username" required>
                    <i class="uil uil-user"></i>
-               </div>
+               </div> -->
                <div class="input-field">
                    <input type="email" placeholder="Enter your email" name="email" required>
                    <i class="uil uil-envelope icon"></i>

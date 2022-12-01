@@ -1,3 +1,12 @@
+<?php
+include_once "php/connection.php";
+session_start();
+//for log out
+if(!isset($_SESSION['username'])){ 
+    echo "you are logged out";
+    header('location:login.php'); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +24,7 @@
         <nav>
             <img src="img/logo.png" alt="logo">
             <i class="uil uil-user"></i>
+            <span id="user">Miles Morals</span>
             <a href="logout.php" class="logout">Logout</a>
             <h1>Student Feedback Survey</h1>
             <p>Kindly fill this evaluation survey as it will facilitate us in providing better service to you. We ensure complete confidentiality of the feedback given by you.</p>   
@@ -23,14 +33,14 @@
     <section>
         <hr>
         <div class="info">
-            <form action="#">
+        <form action="#" method="POST" autocomplete="off" enctype="multipart/form-data">
                 <label for="center">Center Name:</label>
                 <input type="text" id="center" name="center" placeholder="Konnagar" required>
                 <label for="faculty">Faculty Name:</label>
                 <input type="text" id="faculty" name="faculty" placeholder="Teacher name" required>
                 <label for="course">Course Name:</label>
                 <input type="text" id="course" name="course" placeholder="Course name" required>
-            </form>
+
             
         </div>
 
@@ -45,16 +55,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="never" name="q1" value="never">
+
+            <input type="radio" id="never" name="q1" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q1" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q1" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q1" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 2 -->
@@ -64,16 +74,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q2" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q2" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q2" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q2" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 3 -->
@@ -83,17 +93,17 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q3" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q3" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q3" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q3" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
-           </div>                   
+
+           </div>                  
         </div>
         <!-- 4 -->
         <div class="q">
@@ -102,16 +112,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q4" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q4" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q4" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q4" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 5 -->
@@ -121,16 +131,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q5" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q5" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q5" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q5" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 6 -->
@@ -140,16 +150,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q6" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q6" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q6" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q6" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 7 -->
@@ -159,16 +169,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q7" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q7" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q7" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q7" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 8 -->
@@ -178,16 +188,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q8" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q8" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q8" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q8" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 9 -->
@@ -197,16 +207,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q9" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q9" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q9" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q9" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+ 
            </div>                   
         </div>
         <!-- 10 -->
@@ -216,16 +226,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q10" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q10" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q10" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q10" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 11 -->
@@ -235,16 +245,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q11" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q11" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q11" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q11" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 12 -->
@@ -254,16 +264,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q12" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q12" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q12" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q12" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 13 -->
@@ -273,16 +283,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q13" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q13" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q13" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q13" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 14 -->
@@ -292,16 +302,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q14" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q14" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q14" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q14" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 15 -->
@@ -311,16 +321,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q15" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q15" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q15" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q15" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 16 -->
@@ -330,16 +340,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q16" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q16" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q16" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q16" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 17-->
@@ -349,16 +359,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q17" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q17" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q17" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q17" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 18 -->
@@ -368,16 +378,16 @@
             <br>
            <p class="questions">Did your class ever cancel due to absence of faculty?</p>
            <br>
-           <form action="#">
-            <input type="radio" id="q1" name="q1" value="never">
+
+            <input type="radio" id="q1" name="q18" value="never" required>
             <label for="never">Never</label><br>
-            <input type="radio" id="q1" name="q1" value="sometimes">
+            <input type="radio" id="q1" name="q18" value="sometimes" required>
             <label for="sometimes">Sometimes</label><br>
-            <input type="radio" id="q1" name="q1" value="frequently">
+            <input type="radio" id="q1" name="q18" value="frequently" required>
             <label for="frequently">Frequently</label><br>
-            <input type="radio" id="q1" name="q1" value="mostly">
+            <input type="radio" id="q1" name="q18" value="mostly" required>
             <label for="mostly">Mostly</label><br>
-           </form> 
+
            </div>                   
         </div>
         <!-- 19 -->
@@ -387,33 +397,33 @@
             <br>
            <p class="questions">RELEVANCE AND ADEQUACY OF EXAMPLES USED BY THE FACULTY WHILE TEACHING.</p>
            <br>
-           <form action="#" class="f">
-            <input type="radio" id="q1" name="q1" value="Excellent">
+
+            <input type="radio" id="q1" name="q19" value="Excellent" required>
             <label for="Excellent">Excellent</label><br>
-            <input type="radio" id="q1" name="q1" value="Good">
+            <input type="radio" id="q1" name="q19" value="Good" required>
             <label for="Good">Good</label><br>
-            <input type="radio" id="q1" name="q1" value="Average">
+            <input type="radio" id="q1" name="q19" value="Average" required>
             <label for="Average">Average</label><br>
-            <input type="radio" id="q1" name="q1" value="fair">
+            <input type="radio" id="q1" name="q19" value="fair" required>
             <label for="fair">Fair</label><br>
-           </form> 
+
            </div>                   
         </div>
     </div>
     <hr>
         <div class="cont">
             <p class="i">Please use the following space to provide any other feedback about the course/centre etc. tht you would like to give</p>
-            <form action="#">
-                <label for="center">Name:</label>
-                <input type="text"  placeholder="Name" required>
+
+                <label for="center">Full Name:</label>
+                <input type="text"  placeholder=" Full Name" required>
                 <label for="faculty">Code:</label>
                 <input type="text"  placeholder="Student code" required>
-                <label for="course">Date:</label>
-                <input type="date" required>
+                <!-- <label for="course">Date:</label>
+                <input type="date" required> -->
                 <br>
                 <label for="comment">Advise:</label>
-                <textarea rows="4" cols="50" name="comment" form="usrform">
-                    Enter text here...</textarea>
+                <textarea rows="4" cols="50" name="comment" required placeholder="Type your thoughts"></textarea>
+                    
                     <br>
                     <input type="checkbox" id="termCon" required>
                     <label for="termCon" class="text">I accepted all terms and conditions</label>
