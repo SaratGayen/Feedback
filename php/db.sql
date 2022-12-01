@@ -1,11 +1,11 @@
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
-  `mobile` varchar(255) NOT NULL,
-  `ctime` DATE NOT NULL
+  `username` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `code` INTEGER(4) NOT NULL,
+  `mobile` INTEGER(10) NOT NULL,
+  `usertype` VARCHAR(20) NOT NULL DEFAULT `student`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
