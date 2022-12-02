@@ -1,0 +1,156 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.home-section{
+  position: relative;
+  background: #f5f5f5;
+  min-height: 100vh;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.home-section nav{
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
+.home-section nav .search-box{
+  position: relative;
+  height: 50px;
+  max-width: 550px;
+  width: 100%;
+  margin: 0 20px;
+}
+nav .search-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+}
+nav .search-box .bx-search{
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: #2697FF;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  transition: all 0.4 ease;
+}
+.home-section nav .profile-details{
+  display: flex;
+  align-items: center;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  height: 50px;
+  min-width: 190px;
+  padding: 0 15px 0 2px;
+}
+nav .profile-details img{
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+nav .profile-details .admin_name{
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 10px;
+  white-space: nowrap;
+}
+
+.home-section .home-content{
+  position: relative;
+  padding-top: 104px;
+}
+
+.home-content .student-boxes{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* left box */
+.home-content .student-boxes{
+  background: #fff;
+  padding: 20px 30px;
+  margin: 0 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.home-content .student-boxes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.student-boxes{
+  list-style: none;
+  margin: 8px 0;
+}
+.student-boxes{
+  font-size: 18px;
+  color: #333;
+  font-size: 400;
+  text-decoration: none;
+}
+.logout{
+    background: #2697FF;
+    color: #fff;
+    text-decoration: none;
+    width: 70px;
+    text-align: center;
+    height: 25px;
+    border-radius: 3px;   
+}
+table{
+    width: 100%;
+    /* border: 1px solid black; */
+    text-align: center;
+
+}
+
+/* Responsive Media Query */
+@media (max-width: 1240px) {
+
+}
+@media (max-width: 1150px) {
+
+}
+@media (max-width: 1000px) {
+
+}
+@media (max-width: 700px) {
+
+}
+@media (max-width: 550px) {
+
+}
+@media (max-width: 400px) {
+ 
+}
