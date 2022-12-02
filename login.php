@@ -17,8 +17,9 @@
 
          $db_pass = $email_pass['code'];
 
-        //   name storing in seesion
+        //   name & code storing in seesion
           $_SESSION['username'] = $email_pass['username'];
+          $_SESSION['code'] = $email_pass['code'];
 
 
         //  log in after matching password
@@ -27,7 +28,7 @@
        if($db_pass==$password){
            if($email_pass["usertype"]=="student"){
 
-                header('location:survey.html');
+                header('location:survey.php');
             }
             elseif($email_pass["usertype"]=="admin"){
                 header('location:admin.html');
@@ -74,15 +75,6 @@
                         <input type="password" class="password" placeholder="Enter your password" name="password" value= "" required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
-                    </div>
-
-                    <div class="checkbox-text">
-                        <div class="checkbox-content">
-                            <input type="checkbox" name="rememberme" id="logCheck">
-                            <label for="logCheck" class="text">Remember me</label>
-                        </div>
-                        
-                        <a href="forgot.php" class="text">Forgot password?</a>
                     </div>
 
                     <div class="input-field button">

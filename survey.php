@@ -79,7 +79,8 @@ if(isset($_POST['submit'])){
         <nav>
             <img src="img/logo.png" alt="logo">
             <i class="uil uil-user"></i>
-            <span id="user">Miles Morals</span>
+            <span id="user"><?php echo $_SESSION['username'];?></span>
+            <span id="user"><?php echo $_SESSION['code'];?></span>
             <a href="logout.php" class="logout">Logout</a>
             <h1>Student Feedback Survey</h1>
             <p>Kindly fill this evaluation survey as it will facilitate us in providing better service to you. We ensure complete confidentiality of the feedback given by you.</p>   
