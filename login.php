@@ -94,6 +94,6 @@
 
 
 
-    <script src="sh.js"></script>
+    <script src="js/sh.js"></script>
 </body>
 </html>
