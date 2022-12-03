@@ -2,7 +2,7 @@
   $hostname = "localhost";
   $username = "root";
   $password = "";
-  $dbname = "feedback";
+  $dbname = "tst";
 
   $con = mysqli_connect($hostname, $username, $password, $dbname);
 if($con){

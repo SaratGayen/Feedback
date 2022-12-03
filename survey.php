@@ -82,10 +82,12 @@ if(isset($_POST['submit'])){
     <header>
         <nav>
             <img src="img/logo.png" alt="logo">
-            <i class="uil uil-user"></i>
-            <span id="user"><?php echo $_SESSION['username'];?></span>
-            <span id="user"><?php echo $_SESSION['code'];?></span>
-            <a href="logout.php" class="logout">Logout</a>
+               <div class="profile-details">
+                  <img src="img/user.png" alt="">
+                  <span class="admin_name"><?php echo $_SESSION['username'];?></span>
+                  <span class="admin_name"><?php echo $_SESSION['code'];?></span>
+                  <a href="logout.php" class="logout">Logout</a>
+              </div>
             <h1>Student Feedback Survey</h1>
             <p>Kindly fill this evaluation survey as it will facilitate us in providing better service to you. We ensure complete confidentiality of the feedback given by you.</p>   
         </nav>
