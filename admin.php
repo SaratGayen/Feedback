@@ -15,11 +15,11 @@ session_start();
   <section class="home-section">
     <nav>
       <div class="sidebar-button">
-        <span class="dashboard">Admin page</span>
+        <span class="dashboard">Admin Page</span>
       </div>
       <div class="search-box">
         <input type="text" placeholder="Search...">
-        <i class='bx bx-search' ></i>
+        <div class="sr"><i class='bx bx-search'></i><button>Search</button></div>
       </div>
       <div class="profile-details">
         <img src="img/user.png" alt="">
@@ -33,23 +33,22 @@ session_start();
       <div class="student-boxes">
           <table>
             <tr>
-              <th rowspan="2"></th>>
-                #ID
-              </th>
-              <th rowspan="2"></th>>
-                NAME
-              </th>
-              <th rowspan="2"></th>>
-               CODE
-              </th>
-              <th rowspan="2"></th>>
-                VIEW
-              </th>
+              <th>#ID</th>
+                
+              <th> NAME</th>
+               
+        
+              <th>CODE</th>
+               
+              
+              <th>VIEW</th>
+                
+          
             </tr>
 <?php
 
 include_once "php/connection.php"; 
- $q = "select * from users ";
+ $q = "select * from sfd ";
 
  $query = mysqli_query($con,$q);
 
@@ -59,21 +58,20 @@ include_once "php/connection.php";
   {
     //echo
     ?>
-    <tr>
-              
-              <td> 
-                 <?php echo $res['user_id'];  ?>  
-              </td>
-              <td>
-                  <?php echo $res['username'];  ?>  
+        <tr>  
+                <td> 
+                     <?php echo $res['user_id'];  ?>  
+               </td>
+                <td>
+                    <?php echo $res['name'];  ?>  
                 </td>
-              <td> 
-                <?php echo $res['code'];  ?>  
-              </td>
-               <td>
-                <a href="#" class="btn btn-info btn-sm">View</a>
-              </td> 
-          </tr>
+                 <td> 
+                     <?php echo $res['code'];  ?>  
+                 </td>
+                 <td>
+                      <a href="#" class="view">View</a>
+                 </td> 
+       </tr>
     <?php
   }
 } 

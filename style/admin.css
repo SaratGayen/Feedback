@@ -46,20 +46,31 @@ nav .search-box input{
   font-size: 18px;
   padding: 0 15px;
 }
-nav .search-box .bx-search{
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background: #2697FF;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 4px;
+.sr{
+     position: absolute;
+     height: 40px;
+     width: 75px;
+     background: #2697FF;
+     color: #fff;
+     border-radius: 4px;
+     transform: translateY(-50%); 
+     right: 5px;
+     top: 50%;
+     display: flex;
+     justify-content: flex-start;
+   }
+nav .search-box .bx-search{ 
   line-height: 40px;
   text-align: center;
-  color: #fff;
   font-size: 22px;
   transition: all 0.4 ease;
+}
+nav .search-box .sr button{
+  text-align: center;
+  background: none;
+  color: #fff;
+  border: none;
+  width: 40px;
 }
 .home-section nav .profile-details{
   display: flex;
@@ -128,13 +139,25 @@ nav .profile-details .admin_name{
     height: 25px;
     border-radius: 3px;   
 }
+.view{
+    background: #2697FF;
+    color: #fff;
+    text-decoration: none;
+    width: 80px;
+    text-align: center;
+    height: 25px;
+    border-radius: 4px;
+    padding: 2px 8px; 
+   
+}
 table{
     width: 100%;
-    /* border: 1px solid black; */
     text-align: center;
-
 }
-
+tbody tr{
+   line-height: 2rem;
+   
+}
 /* Responsive Media Query */
 @media (max-width: 1240px) {
 
