@@ -31,7 +31,7 @@
                 header('location:survey.php');
             }
             elseif($email_pass["usertype"]=="admin"){
-                header('location:admin.html');
+                header('location:admin.php');
           }
 
         }

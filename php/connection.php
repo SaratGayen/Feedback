@@ -6,16 +6,8 @@
 
   $con = mysqli_connect($hostname, $username, $password, $dbname);
 if($con){
-    ?>
-    <script>
-      alert("Connection Successful");
-    </script>
-    <?php
+  echo"coonnection Succefull";
   }else{
-    ?>
-    <script>
-      alert("Connection not Succeful")
-    </script>
-    <?php
+    echo "connection not succfull";
   }
 ?>

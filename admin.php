@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -43,33 +46,45 @@
                 VIEW
               </th>
             </tr>
-            <!-- <?php
+<?php
 
- include 'conn.php'; 
+include_once "php/connection.php"; 
  $q = "select * from users ";
 
  $query = mysqli_query($con,$q);
 
- while($res = mysqli_fetch_array($query)){
- ?> -->
- <br>
-            <tr>
+ if(mysqli_num_rows($query) > 0)
+ {
+  foreach($query as $res)
+  {
+    //echo
+    ?>
+    <tr>
               
-                <td> 
-                  helo
-
-                  <!-- <?php echo $res['id'];  ?>  -->
+              <td> 
+                 <?php echo $res['user_id'];  ?>  
+              </td>
+              <td>
+                  <?php echo $res['username'];  ?>  
                 </td>
-                <td>
-                   <!-- <?php echo $res['username'];  ?>  -->
-                  </td>
-                <td> 
-                  <!-- <?php echo $res['code'];  ?>  -->
-                </td>
-                <!-- <td>
-                  <a href="student-view.php?id=<?= $student['id']; ?>" class="btn btn-info btn-sm">View</a>
-                </td> -->
-            </tr>
+              <td> 
+                <?php echo $res['code'];  ?>  
+              </td>
+               <td>
+                <a href="#" class="btn btn-info btn-sm">View</a>
+              </td> 
+          </tr>
+    <?php
+  }
+} 
+  else{
+    echo"<h5>No record found</h5>";
+   }
+ 
+ 
+ ?> 
+ <br>
+            
           </table>
           
         </div>
