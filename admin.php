@@ -18,55 +18,11 @@ session_start();
         <span class="dashboard">Admin Page</span>
       </div>
       <div class="search-box">
-        <form action="#" method="POST">
         <input type="text" placeholder="Search..." name="search">
-        <div class="sr"><i class='bx bx-search'></i><button type="submit" name="filter">Search</button></div>
-        </form>
-        <div class="student-boxes">
-          <table>
-            <tr>
-                
-              <th> NAME</th>
-               
-        
-              <th>CODE</th>
-               
-              
-              <th>VIEW</th>
-                
-          
-            </tr>
-<?php
-
-include_once "php/connection.php"; 
-if(isset($_POST['filter']))
-{
-  $value_filter=$_POST['search'];
-  $query="select * from sfd where concat(name,code)like '%$value_filter%' ";
-  $query_run=mysqli_query($con,$query);
-  
-  if(mysqli_num_rows($query_run) >0)
-  {
-    while ($row=mysqli_fetch_array($query_run))
-    {
-      // echo $row['name'];
-      ?>
-      <tr>
-        <td><?php echo $row['name'];?></td>
-        <td><?php echo $row['code'];?></td>
-        <td><a href="#" class="view">View</a></td> 
-      </tr>
-      <?php
-    }
-  }
-  else{
-    echo"No record";
-  }
-}
- ?>         
-          </table>
-      </div>
-      </div>
+        <div class="sr"><i class='bx bx-search'></i></div>
+      
+      </div> 
+      </div> 
       <div class="profile-details">
         <img src="img/user.png" alt="">
         <span class="admin_name">Admin</span>
@@ -83,6 +39,7 @@ if(isset($_POST['filter']))
                
         
               <th>CODE</th>
+              <th>DATE</th>
                
               
               <th>VIEW</th>
@@ -111,6 +68,10 @@ include_once "php/connection.php";
                 </td>
                  <td> 
                      <?php echo $res['code'];  ?>  
+                 </td>
+
+                 <td>
+                      <?php echo $res['sdate'];  ?> 
                  </td>
                  <td>
                       <a href="#" class="view">View</a>

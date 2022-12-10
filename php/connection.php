@@ -6,6 +6,6 @@
 
   $con = mysqli_connect($hostname, $username, $password, $dbname);
 if(!$con){
-  echo"coonnection Succefull";
+  echo"Unable to Connect with DB!!";
   }
 ?>

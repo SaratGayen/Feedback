@@ -1,6 +1,7 @@
 <?php
-include_once "php/connection.php";
 session_start();
+include_once "php/connection.php";
+
 //for log out
 if(!isset($_SESSION['username'])){ 
     echo "you are logged out";
@@ -36,8 +37,8 @@ if(isset($_POST['submit'])){
     $q17 = mysqli_real_escape_string($con, $_POST['q17']);
     $q18 = mysqli_real_escape_string($con, $_POST['q18']);
     $q19 = mysqli_real_escape_string($con, $_POST['q19']);
-    // $name = mysqli_real_escape_string($con, $_POST['name']);
-    // $code = mysqli_real_escape_string($con, $_POST['code']);
+    $name = $_SESSION['username'];
+    $code = $_SESSION['code'];
     $comment = mysqli_real_escape_string($con, $_POST['comment']);
 
 
@@ -45,7 +46,7 @@ if(isset($_POST['submit'])){
     
 
  //   inserting records
-    $insertquery = "insert into sfd (center,faculty,course,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,name,code,comment,sdate) values ('$center','$faculty','$course','$cq1','$cq2','$cq3','$cq4','$cq5','$cq6','$cq7','$cq8','$cq9','$cq10','$cq11','$cq12','$cq13','$cq14','$cq15','$cq16','$cq17','$cq18','$cq19','$name','$code','$comment',now())";
+    $insertquery = "insert into sfd (center,faculty,course,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,name,code,comment,sdate) values ('$center','$faculty','$course','$q1','$q2','$q3','$q4','$q5','$q6','$q7','$q8','$q9','$q10','$q11','$q12','$q13','$q14','$q15','$q16','$q17','$q18','$q19','$name','$code','$comment',now())";
 
         // connection alerts
         $iquery = mysqli_query($con,$insertquery);
