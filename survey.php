@@ -53,13 +53,13 @@ if(isset($_POST['submit'])){
         if($iquery){
           ?>
           <script>
-            alert("Connection Successful");
+            alert("Thanks For Your Feedback !!!");
           </script>
           <?php
         }else{
           ?>
           <script>
-            alert("Connection not Succeful");
+            alert("Please Input Properly !!!");
           </script>
           <?php
         }

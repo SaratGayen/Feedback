@@ -30,13 +30,13 @@
           if($iquery){
             ?>
             <script>
-              alert("Connection Successful");
+              alert("Account Created successfully!!");
             </script>
             <?php
           }else{
             ?>
             <script>
-              alert("Connection not Succeful");
+              alert("Please Input Properly !!");
             </script>
             <?php
           }
