@@ -1,5 +1,11 @@
 <?php
 session_start();
+//for log out
+if(!isset($_SESSION['username'])){ 
+  echo "you are logged out";
+  header('location:login.php'); 
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,7 +31,7 @@ session_start();
       </div> 
       <div class="profile-details">
         <img src="img/user.png" alt="">
-        <span class="admin_name">Admin</span>
+        <span class="admin_name"><?php echo $_SESSION['username'];?></span>
         <a href="logout.php" class="logout">Logout</a>
       </div>
     </nav>
