@@ -40,14 +40,21 @@ if(isset($_POST['submit'])){
     $name = $_SESSION['username'];
     $code = $_SESSION['code'];
     $comment = mysqli_real_escape_string($con, $_POST['comment']);
+    $cnow = time();
+
+ //   inserting records
+ $insertquery = "insert into sfd (center,faculty,course,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,name,code,comment,sdate) values ('$center','$faculty','$course','$q1','$q2','$q3','$q4','$q5','$q6','$q7','$q8','$q9','$q10','$q11','$q12','$q13','$q14','$q15','$q16','$q17','$q18','$q19','$name','$code','$comment',now())";
 
 
     //for submit limition
-    
-
- //   inserting records
-    $insertquery = "insert into sfd (center,faculty,course,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,name,code,comment,sdate) values ('$center','$faculty','$course','$q1','$q2','$q3','$q4','$q5','$q6','$q7','$q8','$q9','$q10','$q11','$q12','$q13','$q14','$q15','$q16','$q17','$q18','$q19','$name','$code','$comment',now())";
-
+    $SubmissionTime = "SELECT sdate FROM `sfd` WHERE name=$name";
+    $lastSubmissionTime = strtotime($SubmissionTime);
+    $differenceInSeconds = $cnow - $lastSubmissionTime;
+    $differenceInDays = floor($differenceInSeconds / (60 * 60 * 24));
+    if ($differenceInDays <= 30) {
+        echo "You can resubmit the form again after " . (30 - $differenceInDays) . " days.";
+    } 
+    else{
         // connection alerts
         $iquery = mysqli_query($con,$insertquery);
         if($iquery){
@@ -63,7 +70,7 @@ if(isset($_POST['submit'])){
           </script>
           <?php
         }
-    
+}
 }
 
 ?>

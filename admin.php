@@ -23,12 +23,22 @@ if(!isset($_SESSION['username'])){
       <div class="sidebar-button">
         <span class="dashboard">Admin Page</span>
       </div>
+      <form action="" method="post">
       <div class="search-box">
-        <input type="text" placeholder="Search..." name="search">
-        <div class="sr"><i class='bx bx-search'></i></div>
-      
-      </div> 
-      </div> 
+        <input type="search" placeholder="Type Name/Student code" name="search">
+        <div class="sr">
+        <i class='bx bx-search'></i>  
+        <!-- <input type="submit" name="Submit" placeholder="Search" class="submit"> -->
+        </div>
+      </div>
+      </form>
+
+      <?php
+if(isset($_POST['search'])) {
+  $query = $_POST['search'];
+
+}
+?>
       <div class="profile-details">
         <img src="img/user.png" alt="">
         <span class="admin_name"><?php echo $_SESSION['username'];?></span>
@@ -40,17 +50,10 @@ if(!isset($_SESSION['username'])){
           <table>
             <tr>
               <th>#ID</th>
-                
-              <th> NAME</th>
-               
-        
+              <th>NAME</th>
               <th>CODE</th>
               <th>DATE</th>
-               
-              
               <th>VIEW</th>
-                
-          
             </tr>
 <?php
 

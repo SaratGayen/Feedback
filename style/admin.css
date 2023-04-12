@@ -47,18 +47,18 @@ nav .search-box input{
   padding: 0 15px;
 }
 .sr{
-     position: absolute;
-     height: 40px;
-     width: 75px;
-     background: #2697FF;
-     color: #fff;
-     border-radius: 4px;
-     transform: translateY(-50%); 
-     right: 5px;
-     top: 50%;
-     display: flex;
-     justify-content: flex-start;
-   }
+  position: absolute;
+  width: 30px;
+  background: #2697FF;
+  color: #fff;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-50%);
+  right: 5px;
+  top: 50%;
+  justify-content: center;
+}
 nav .search-box .bx-search{ 
   line-height: 40px;
   text-align: center;
