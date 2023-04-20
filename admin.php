@@ -27,18 +27,11 @@ if(!isset($_SESSION['username'])){
       <div class="search-box">
         <input type="search" placeholder="Type Name/Student code" name="search">
         <div class="sr">
-        <i class='bx bx-search'></i>  
-        <!-- <input type="submit" name="Submit" placeholder="Search" class="submit"> -->
+        <button name="submit" value="Search" class="submit"><i class='bx bx-search'></i></button>  
         </div>
       </div>
       </form>
 
-      <?php
-if(isset($_POST['search'])) {
-  $query = $_POST['search'];
-
-}
-?>
       <div class="profile-details">
         <img src="img/user.png" alt="">
         <span class="admin_name"><?php echo $_SESSION['username'];?></span>
@@ -57,13 +50,19 @@ if(isset($_POST['search'])) {
             </tr>
 <?php
 
-include_once "php/connection.php"; 
- $q = "select * from sfd ";
+include_once "php/connection.php";
 
- $query = mysqli_query($con,$q);
+if(isset($_POST['submit'])) {
+  $query = $_POST['search'];
+  $q = "SELECT * FROM sfd WHERE name LIKE '%$query%' OR code LIKE '%$query%'";
+} else {
+  $q = "SELECT * FROM sfd";
+}
 
- if(mysqli_num_rows($query) > 0)
- {
+$query = mysqli_query($con,$q);
+
+if(mysqli_num_rows($query) > 0)
+{
   foreach($query as $res)
   {
     //echo
@@ -83,18 +82,17 @@ include_once "php/connection.php";
                       <?php echo $res['sdate'];  ?> 
                  </td>
                  <td>
-                      <a href="#" class="view">View</a>
-                 </td> 
+    <a href="view.php?user_id=<?php echo $res['user_id']; ?>" class="view">View</a>
+      </td> 
        </tr>
     <?php
   }
 } 
-  else{
-    echo"<h5>No record found</h5>";
-   }
- 
- 
- ?>         
+else{
+  echo "<tr><td colspan='5'><h5>No record found</h5></td></tr>";
+}
+
+?>         
           </table>
           
         </div>

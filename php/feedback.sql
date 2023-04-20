@@ -1,19 +1,24 @@
 -- phpMyAdmin SQL Dump
--- version 5.3.0-dev+20221125.2e001c186a
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2022 at 02:47 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.5
+-- Generation Time: Apr 18, 2023 at 09:00 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Database: `tst`
+-- Database: `feedback`
 --
 
 -- --------------------------------------------------------
@@ -50,15 +55,14 @@ CREATE TABLE `sfd` (
   `code` varchar(10) NOT NULL,
   `comment` varchar(10) NOT NULL,
   `sdate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sfd`
 --
 
 INSERT INTO `sfd` (`user_id`, `center`, `faculty`, `course`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `q8`, `q9`, `q10`, `q11`, `q12`, `q13`, `q14`, `q15`, `q16`, `q17`, `q18`, `q19`, `name`, `code`, `comment`, `sdate`) VALUES
-(1, 'konnagar', 'teacher 1', 'course 2', 'never', 'sometimes', 'frequently', 'never', 'sometimes', 'frequently', 'sometimes', 'never', 'frequently', 'frequently', 'mostly', 'frequently', 'mostly', 'sometimes', 'frequently', 'sometimes', 'mostly', 'sometimes', 'Average', 'MIles MOra', '1235', 'test strin', '2022-12-01'),
-(2, 'dfdsf', 'dsfsfsdf', 'sdfdsfsdf', 'frequently', 'sometimes', 'frequently', 'sometimes', 'frequently', 'never', 'never', 'sometimes', 'mostly', 'mostly', 'sometimes', 'mostly', 'frequently', 'sometimes', 'frequently', 'frequently', 'sometimes', 'frequently', 'Excellent', 'sdfsdf', '4321', 'fhgsghrgfh', '2022-12-01');
+(4, 'konngar', 'teacher', 'sample', 'frequently', 'Very few', 'sometimes', 'mostly', 'never', 'sometimes', 'Excellent', 'mostly', 'frequently', 'sometimes', 'sometimes', 'mostly', 'frequently', 'sometimes', 'sometimes', 'mostly', 'Average', 'No', 'fair', 'Test Stude', '1234', 'gjskfjsbjr', '2023-04-18');
 
 -- --------------------------------------------------------
 
@@ -73,16 +77,15 @@ CREATE TABLE `users` (
   `code` varchar(255) NOT NULL,
   `mobile` varchar(255) NOT NULL,
   `usertype` varchar(20) NOT NULL DEFAULT 'student'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `code`, `mobile`, `usertype`) VALUES
-(1, 'user1', 'user@email.com', '1234', '1234567890', 'student'),
-(2, 'admin', 'admin@email.com', '1234', '1234567890', 'student'),
-(4, 'User 2', 'user2@email.com', '4321', '1234567890', 'student');
+(5, 'Test Student', 'student@gmail.com', '1234', '0000000000', 'student'),
+(6, 'Aptech Admin', 'aptechkonnagar@gmail.com', 'aptech123konnagar', '00000000000', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -108,11 +111,15 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `sfd`
 --
 ALTER TABLE `sfd`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

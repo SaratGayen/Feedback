@@ -37,11 +37,19 @@
         }
     
        else{
-           echo "Password Incorrect";
+        ?>
+        <script>
+          alert("password incorrect");
+        </script>
+        <?php
           }
 
         } else{ 
-          echo "Incorrect Email";
+            ?>
+            <script>
+              alert("incorrect emaill");
+            </script>
+            <?php
           }
         }
     

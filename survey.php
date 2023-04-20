@@ -46,33 +46,37 @@ if(isset($_POST['submit'])){
  $insertquery = "insert into sfd (center,faculty,course,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,name,code,comment,sdate) values ('$center','$faculty','$course','$q1','$q2','$q3','$q4','$q5','$q6','$q7','$q8','$q9','$q10','$q11','$q12','$q13','$q14','$q15','$q16','$q17','$q18','$q19','$name','$code','$comment',now())";
 
 
-    //for submit limition
-    $SubmissionTime = "SELECT sdate FROM `sfd` WHERE name=$name";
-    $lastSubmissionTime = strtotime($SubmissionTime);
-    $differenceInSeconds = $cnow - $lastSubmissionTime;
-    $differenceInDays = floor($differenceInSeconds / (60 * 60 * 24));
-    if ($differenceInDays <= 30) {
-        echo "You can resubmit the form again after " . (30 - $differenceInDays) . " days.";
-    } 
-    else{
-        // connection alerts
-        $iquery = mysqli_query($con,$insertquery);
-        if($iquery){
-          ?>
-          <script>
-            alert("Thanks For Your Feedback !!!");
-          </script>
-          <?php
-        }else{
-          ?>
-          <script>
-            alert("Please Input Properly !!!");
-          </script>
-          <?php
-        }
+    // for submit limit
+$SubmissionTime = "SELECT MAX(sdate) AS max_date FROM `sfd` WHERE name='$name'";
+$result = mysqli_query($con, $SubmissionTime);
+$row = mysqli_fetch_assoc($result);
+$lastSubmissionTime = strtotime($row['max_date']);
+$differenceInSeconds = $cnow - $lastSubmissionTime;
+$differenceInDays = floor($differenceInSeconds / (60 * 60 * 24));
+if ($differenceInDays < 30) {
+    ?>
+    <script>
+      alert("you can submit after 30 days");
+    </script>
+    <?php
+} else {
+    // connection alerts
+    $iquery = mysqli_query($con,$insertquery);
+    if($iquery){
+      ?>
+      <script>
+        alert("Thanks For Your Feedback !!!");
+      </script>
+      <?php
+    }else{
+      ?>
+      <script>
+        alert("Please Input Properly !!!");
+      </script>
+<?php
 }
 }
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -355,7 +359,7 @@ if(isset($_POST['submit'])){
             <div class="ques2">
             <h2>Question 13 <i class="uil uil-question-circle"></i></h2>
             <br>
-           <p class="questions">Have you encountred a problem with respect to the machine in the lab ?
+           <p class="questions">Have you encountred a problem with respect to the machine in the lab ?</p>
            <br>
 
            <label><input type="radio" id="q1" name="q13" value="never" required>
@@ -374,7 +378,7 @@ if(isset($_POST['submit'])){
             <div class="ques2">
             <h2>Question 14 <i class="uil uil-question-circle"></i></h2>
             <br>
-           <p class="questions">does machine problems get sorted with in a stipulated time ?</p>
+           <p class="questions">Does machine problems get sorted with in a stipulated time ?</p>
            <br>
 
            <label><input type="radio" id="q1" name="q14" value="never" required>
@@ -393,7 +397,7 @@ if(isset($_POST['submit'])){
             <div class="ques2">
             <h2>Question 15 <i class="uil uil-question-circle"></i></h2>
             <br>
-           <p class="questions">are the assignments and examnations conducted as per the schedule?</p>
+           <p class="questions">Are the assignments and examnations conducted as per the schedule?</p>
            <br>
 
            <label><input type="radio" id="q1" name="q15" value="never" required>
@@ -431,7 +435,7 @@ if(isset($_POST['submit'])){
             <div class="ques2">
             <h2>Question 17 <i class="uil uil-question-circle"></i></h2>
             <br>
-           <p class="questions">your satisfaction level with respect to faculty guidance on the project?</p>
+           <p class="questions">your satisfaction level with respect to faculty guidance on the project ?</p>
            <br>
 
            <label><input type="radio" id="q1" name="q17" value="excellent" required>
@@ -450,7 +454,7 @@ if(isset($_POST['submit'])){
             <div class="ques2">
             <h2>Question 18 <i class="uil uil-question-circle"></i></h2>
             <br>
-           <p class="questions">Is the feedback taken from you atleast once a month?</p>
+           <p class="questions">Is the feedback taken from you atleast once a month ?</p>
            <br>
 
            <label><input type="radio" id="q1" name="q18" value="No" required>
@@ -462,7 +466,6 @@ if(isset($_POST['submit'])){
         </div>
         <!-- 19 -->
         <div class="q">
-            div class="ques19">
             <h2>Question 19 <i class="uil uil-question-circle"></i></h2>
             <br>
            <p class="questions">Relevance and adequacy of examples used by the faculty teaching?</p>
